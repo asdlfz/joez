@@ -1,0 +1,227 @@
+
+<!-- # ------------------------------------------------------------------
+# kickassGFX.net - Best Graphic Source - Free Themes, Scripts & Plugins 
+# -----------------------------------------------------------------------
+# This file has been downloaded from KickassGFX.net
+# Homepage: http://www.kickassgfx.net/
+# -----------------------------------------------------------------------
+# You'll find your Updates everyday at KickassGFX.net
+# -----------------------------------------------------------------------
+# If you need support with this template you can
+# contact us at   http://www.kickassgfx.net/
+# ------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en">
+<!--<![endif]-->
+<head>
+<!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8" />
+    <title>Joez's Music</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="../library/stylesheets/style.css" />
+<link rel="stylesheet" href="../library/stylesheets/layout.css" />
+    <script src="./jquery.js"></script>
+    <script src="audiojs/audio.js"></script>
+    <script>
+      $(function() { 
+        // Setup the player to autoplay the next track
+        var a = audiojs.createAll({
+          trackEnded: function() {
+            var next = $('ol li.playing').next();
+            if (!next.length) next = $('ol li').first();
+            next.addClass('playing').siblings().removeClass('playing');
+            audio.load($('a', next).attr('data-src'));
+            audio.play();
+          }
+        });
+        
+        // Load in the first track
+        var audio = a[0];
+            first = $('ol a').attr('data-src');
+        $('ol li').first().addClass('playing');
+        audio.load(first);
+
+        // Load in a track on click
+        $('ol li').click(function(e) {
+          e.preventDefault();
+          $(this).addClass('playing').siblings().removeClass('playing');
+          audio.load($('a', this).attr('data-src'));
+          audio.play();
+        });
+        // Keyboard shortcuts
+        $(document).keydown(function(e) {
+          var unicode = e.charCode ? e.charCode : e.keyCode;
+             // right arrow
+          if (unicode == 39) {
+            var next = $('li.playing').next();
+            if (!next.length) next = $('ol li').first();
+            next.click();
+            // back arrow
+          } else if (unicode == 37) {
+            var prev = $('li.playing').prev();
+            if (!prev.length) prev = $('ol li').last();
+            prev.click();
+            // spacebar
+          } else if (unicode == 32) {
+            audio.playPause();
+          }
+        })
+      });
+    </script>
+      <style>
+      body { color: #666; font-family: sans-serif; line-height: 1.4; background: #ddd url(bg.jpg) repeat top left; }
+        h1 { color: #444; font-size: 1.2em; padding: 14px 2px 12px; margin: 0px; }
+        h1 em { font-style: normal; color: #999; }
+      h2
+      {
+        color:#FFFFFF;
+        margin:25px 0;
+        font-family: Trebuchet MS;
+        font-size: 30px;
+        text-align:center;
+        text-shadow: 0 1px 4px #DDDDDD;
+      }
+        
+      h3
+      {
+        color:#3e3e3e;
+        margin:25px 0;
+        font-family: Tahoma;
+        font-size: 55px;
+        text-align:center;
+        text-shadow: 1px 1px #777777, -1px -1px #000000;
+      }
+      
+      h4
+      {
+        color:#FFFFFF;
+        margin:25px 0;
+        font-family: Trebuchet MS;
+        font-size: 18px;
+        text-align:center;
+        text-shadow: 0 1px 4px #DDDDDD;
+      }
+      
+      h5
+      {
+        color: #ffffff;
+        margin:25px 0;
+        font-family: Tahoma;
+        font-size: 30px;
+        text-align:center;
+        text-shadow: 0 0 4px #db6969, 0 0 0.2em #db6969;
+      }      
+
+      a { color: #00BFFF; text-decoration: none; }
+      #wrapper { width: 400px; margin: 40px auto; }
+      
+      ol { padding: 0px; margin: 0px; list-style: decimal-leading-zero inside; color: #ccc; width: 460px; border-top: 1px solid #ccc; font-size: 0.9em; }
+      ol li { position: relative; margin: 0px; padding: 9px 2px 10px; border-bottom: 1px solid #ccc; cursor: pointer; }
+      ol li a { display: block; text-indent: -3.3ex; padding: 0px 0px 0px 20px; }
+      li.playing { color: #aaa; text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.3); }
+      li.playing a { color: #FFFFFF; }
+      li.playing:before { content: '♬'; width: 14px; height: 14px; padding: 3px; line-height: 14px; margin: 0px; position: absolute; left: -24px; top: 9px; color: #FFFFFF; font-size: 13px; text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2); }
+      
+      #shortcuts div { width: 460px; margin: -2px auto; }
+      #shortcuts p { margin: 0px 0px 18px; }
+        -webkit-border-radius: 4px; -moz-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); -o-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); }
+
+      @media screen and (max-device-width: 480px) {
+        #wrapper { position: relative; left: -3%; }
+        #shortcuts { display: none; }
+      }
+    </style>
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Favicons
+================================================== -->
+<link rel="shortcut icon" href="../library/images/favicon/favicon.ico" />
+<link rel="apple-touch-icon" href="../library/images/favicon/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="../library/images/favicon/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="../library/images/favicon/apple-touch-icon-114x114.png" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+<!-- Primary Page Layout
+================================================== -->
+<!-- Header -->
+<div id="header">    
+    <div class="inner-image">
+        <!-- Top Bar -->
+        <div class="inner-bg">
+            <div class="container">
+                <div class="sixteen columns">
+                    <div id="top-bar">
+                    <p>This page's source code on <a href="https://github.com/asdlfz/joez" target="_blank">GitHub</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Logo -->
+        <div class="container">
+			<div id="main-logo" class="eight columns"><a href="index.html"><img src="../images/site/Clarence.png" alt="Clarence" /></a></div>
+			<div class="eight columns banner-box-top"><p>联系方式:<br /><a href="mailto:252521333@qq.com">My e-mail</a></p></div>
+		</div>
+        <!-- Primary Navigation -->
+        <div class="inner-bg">
+			<div class="container">
+                <div class="sixteen columns">
+                    <div id="primary-nav-holder">
+                        <ul id="primary-nav">
+                            <li><a href="../index.html">Home</a>
+                            </li>
+                            <li><a href="../dmeo.html">Dmeo</a></li>
+                            <li><a href="../image.html">HTML</a>
+                            </li>
+                             <li><a href="#" class="current">Music</a></li>
+                            <li><a href="../about.html">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+  <div id="shortcuts">
+		  
+<h2><em>   This is </em><a href="http://asdlfz.github.com/joez">Joez</a>'<em>s </em><a href="http://asdlfz.github.com/joez/music/">Music </a><em>Player</em></h2>
+
+	</div>
+    <div id="wrapper">
+      
+      <audio src="" autoplay></audio>
+      <ol>
+<li><a href="#" data-src="mp3/Rolling in the deep.mp3">Rolling in the deep</a></li>
+<li><a href="#" data-src="mp3/Call Me Maybe.mp3">Call Me Maybe</a></li>
+<li><a href="#" data-src="mp3/You Belong With Me.mp3">You Belong With Me</a></li>
+<li><a href="#" data-src="mp3/The Lazy Song.mp3">The Lazy Song</a></li>
+<li><a href="#" data-src="mp3/Star In You.mp3">Star In You</a></li>
+<li><a href="#" data-src="mp3/Someone like you.mp3">Someone like you</a></li>
+<li><a href="#" data-src="mp3/One and only.mp3">One and only</a></li>
+<li><a href="#" data-src="mp3/Count On Me.mp3">Count On Me</a></li>
+<li><a href="#" data-src="mp3/Shell.mp3">Shell</a></li>
+
+      </ol>
+    </div>
+<div id="shortcuts">
+		    
+<h4>This page's source code on <a href="https://github.com/asdlfz/joez/">GitHub</a></h4>
+
+	</div>
+
+</body>
+</html>
