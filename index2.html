@@ -1,0 +1,395 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>无需刷机还原纯净越狱系统</title>
+<meta name="description" content="appifan是一个app分享平台，这里有很多热心用户分享iPhone、iPad以及mac的游戏及软件资源供给大家下载，欢迎每一位朋友的加入！" />
+<meta name="keywords" content="iPhone5,iPhone4,iPad2,iPad,下载,iTouch5,Touch5,iTunes" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link rel="stylesheet" type="text/css" href="http://www.appifan.com/css/reset.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="http://www.appifan.com/css/base.css" media="screen" />
+<link rel="stylesheet" type="text/css"  href="http://www.appifan.com/jc/htmlstatic/cou-1.css?fresh2"/>
+<link href="http://apple.laohu.com/css/colorbox/css/colorbox.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://www.appifan.com/js/jquery.js"></script>
+<script type="text/javascript" src="http://www.appifan.com/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="http://www.appifan.com/js/nav.js"></script>
+<base target="_blank" />
+<style>
+.side-title { line-height:24px;}
+</style>
+<script type="text/javascript">
+function bookmark(title, url){
+if (document.all) {window.external.AddFavorite(url, title)}
+else {if (window.sidebar) window.sidebar.addPanel(title, url, "")}
+}
+</script>
+<base target="_blank" />
+<style>
+.side-title { line-height:24px;}
+</style>
+
+</head>
+
+<body>
+<!--[if lt IE 7]> 
+
+<div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;'> 
+
+<a href="http://windows.microsoft.com/zh-CN/internet-explorer/downloads/ie?ocid=ie6_countdown_bannercode">
+
+<img src="http://img.app.appifan.com/dapp/css/images/upgrade.jpg" border="0" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+
+</a>
+
+</div> 
+<![endif]-->
+
+
+  <script type="text/javascript" src="http://apple.laohu.com/css/colorbox/js/jquery.colorbox-min.js"></script>
+<style>
+.tutorial-menu{background:url(http://www.appifan.com/css/images/tutor.jpg) no-repeat; width:110px; height:49px; margin:2px 0 0 470px; *margin:2px 0 0 140px}
+.tutorial-menu a{ display:block; margin:0 18px 0 0; line-height:49px; color:#C92C21; font-weight:bold; font-size:14px}
+</style>
+
+<script charset="utf-8" type="text/javascript">
+
+				var Search=function(){
+
+					var key=document.getElementById("keyword").value;
+
+					if(key==""){return;}
+
+					if($ .browser.msie){window.open('http://www.baidu.com/s?wd='+key+' site:www.appifan.com');
+
+					}else{window.open('http://www.baidu.com/s?ie=UTF-8&wd='+key+' site:www.appifan.com');}
+
+				};
+
+			</script>
+
+<script>
+
+
+$("#jtnav a.jtsubnav0").click(function(){
+	
+	 //alert( $("ol.jtsubnav").not($(this).next()).attr("id"))
+		
+	   var tobj = this;		   
+	   
+	   if( $(this).next().css("display") == "none" ){
+			   $("ol.jtsubnav").not($(this).next()).animate({ 
+				  width: "0"
+			   }, "fast",function(){
+				    $(this).hide(function(){
+						
+					     
+					
+					})
+					
+					$(tobj).next().width(0).show().animate({ 
+				             width: "480px"
+			             }, "fast");
+					//alert( $(this).attr("id"));
+					
+					
+				});
+		
+	   }
+	   
+	   if( $(this).next().css("display") == "block" ){
+			   
+			   $(this).next().animate({ 
+				             width: "0"
+			             }, "fast",function(){ 
+						    
+							$(this).hide() 
+							
+							
+						});
+
+		
+	   }
+})
+
+
+var  curl = window.location.href;
+
+	
+	if(  curl.indexOf("iphone/") != -1 && curl.indexOf("jc/") != -1 )
+	{
+	   
+	   initjtsubnav(1,curl)
+	}else if (curl.indexOf("ipad/") != -1 && curl.indexOf("jc/") != -1 ){
+	  
+	   initjtsubnav(2,curl)
+	}else if (curl.indexOf("zixun") != -1){
+	  
+	   initjtnav(3)
+	}else{
+	  
+       initjtnav(0);
+	 
+    }
+
+function initjtnav(tmpsum){
+   //alert(tmpsum);
+   var jtnavli = $("#jtnav ul li").not("ol li");
+   $(jtnavli).removeClass("jtnav-liselected")
+   $(jtnavli[tmpsum]).addClass("jtnav-liselected")
+   
+}
+
+function initjtsubnav(tmpsum,tmpcurl){
+   var jtnavli = $("#jtnav ul li").not("ol li");
+   var tmpcurl = tmpcurl.substring(tmpcurl.lastIndexOf("/")+1)
+   var snum = subnavnum(tmpcurl);
+   var olas = $($(jtnavli[tmpsum]).find("ol a"));
+   $(jtnavli).removeClass("jtnav-liselected")
+   $(jtnavli[tmpsum]).addClass("jtnav-liselected")
+   $($(jtnavli[tmpsum]).find("ol")).show()
+   //$(olas).removeClass("subselected")
+   $(olas[snum]).addClass("subselected")
+}
+
+
+function subnavnum(tmpcurl)
+{
+   var num;
+   switch( tmpcurl )
+   {
+	   case "xinshou.html":
+	      num =  0
+	      break
+	   case "yueyu.html":
+	      num = 1
+	      break
+	   case "jiqiao.html":
+	      num = 2
+	      break
+	   default:
+	      num =  3;
+   }
+   return num;
+}
+
+
+</script>
+<!-- main -->
+
+<div class="subnav">
+
+</div>
+<div class="content-wrapper">
+
+	<div class="content-top">
+	
+	</div>
+<style>
+<!--
+.rank ul{padding-bottom:5px;}
+-->
+</style>
+	
+	<div id="content" class="clearfix">
+		<div class="main clearfix">
+			<div class="main-left"  id="text">
+				<div class="min-title">
+					<a href="#"><img src="http://www.appifan.com/data/topic/2012/06/tmp_4fdafc27.png"/></a> 
+					<div class="topic">
+						<h1>无需刷机还原纯净越狱系统</h1>
+						
+					</div>
+				</div>
+				<div class="col-1">
+					<p>iLEX RAT是由著名越狱开发者 iLEX 最新发布的一款强力神器，它可以在不重新刷机的情况下，轻松清理设备中的插件、配置设置等，让你的设备重回初始状态。</p>				</div>
+								<div  class="coll">
+					<span class="zysx">注意事项!</span>
+					<div  class="coltext colpoint">
+<p>ILEX RAT的源地址<a href="http://cydia.myrepospace.com/iLEXiNFO/">http://cydia.myrepospace.com/iLEXiNFO/</a>。</p>
+<p>MobileTerminal终端Deb文件<a href="http://kuai.xunlei.com/d/nMhEAJmDbUZuUQQA12d?p=130234">（此插件在Big Boss源中有）</a>。</p>					</div>
+				</div>
+								<div  class="coll">
+					<span class="czbz">操作步骤</span>
+				</div>
+					<div class="czbzimg">
+						
+                                                					<div class="step"><span>1</span></div>
+					<div  class="coltextnew">
+						<p>打开桌面上的Cydia软件，需要安装2个必备插件，点击右下角"搜索"按钮，依次搜索"iLex Rat"和"MobileTerminal（此插件在Big Boss源中）"，然后安装好即可。（<font color="#ff0000">注：这里第一中文源有汉化版的插件</font>）。</p><img src="http://img.appifan.com/apple/201304/17/1366180042492.jpg" alt="无需刷机还原纯净越狱系统-1.jpg" /><br><img src="http://img.appifan.com/apple/201304/17/1366180043707.jpg" alt="无需刷机还原纯净越狱系统-2.jpg" />					</div>
+                                                					<div class="step"><span>2</span></div>
+					<div  class="coltextnew">
+						<p>安装完成后，打开桌面的Terminal插件。</p><img src="http://img.appifan.com/apple/201304/17/1366180043495.jpg" alt="无需刷机还原纯净越狱系统-3.jpg" />					</div>
+                                                					<div class="step"><span>3</span></div>
+					<div  class="coltextnew">
+						<p>依次在AppiFan:~mobile后面输入:<font color="#ff0000">su</font></p>
+<p>Password后面输入:<font color="#ff0000">alpine</font>（注：此为默认密码，如果之前改过root密码，请输入自己修改的）。</p><img src="http://img.appifan.com/apple/201304/17/1366180044683.jpg" alt="无需刷机还原纯净越狱系统-4.jpg" />
+					</div>
+                                                					<div class="step"><span>4</span></div>
+					<div  class="coltextnew">
+						<p>假如密码正确的话，应该显示如下画面，然后输入:<font color="#ff0000">rat</font> 即可。</p><img src="http://img.appifan.com/apple/201304/17/1366180160180.jpg" alt="无需刷机还原纯净越狱系统-23412342.jpg" />					</div>
+                                                					<div class="step"><span>5</span></div>
+					<div  class="coltextnew">
+						<p>此时我们可以看到一系列功能列表如图所示，大家可以根据自己所需，输入相对应的数字代码，然后按回车即可。</p><img src="http://img.appifan.com/apple/201304/17/1366180044924.jpg" alt="无需刷机还原纯净越狱系统-5.jpg" />					</div>
+                                                					<div class="step"><span>6</span></div>
+					<div  class="coltextnew">
+						<p>这里我们来介绍下他的详细功能</p>
+<p>1为“一次性删除所有Cydia下载的插件”（Remove All Cydia App Tweaks At Once），这里包括已经安装的插件和添加的源（自带4个源不会删除），按完1后，点击回车，他会询问你是否移除iLex Rat软件(y/n)，想要移除就输入"y"，不想的话就输入"n"，接下来查件会警告用户是否删除所有Cydia已下载插件，同上输入即可。</p><img src="http://img.appifan.com/apple/201304/17/1366180048129.jpg" alt="无需刷机还原纯净越狱系统-一1.jpg" />
+<p>完成以上阶段后会提示是否清除所有插件的设置，依然输入 y 并回车。</p><img src="http://img.appifan.com/apple/201304/17/1366180049385.jpg" alt="无需刷机还原纯净越狱系统-一2.jpg" />
+<p>所有项目清除完毕后，会提示需要注销设备，错误日志保存在 /tmp/rat.log，随后将自动注销。</p>					</div>
+                                                					<div class="step"><span>7</span></div>
+					<div  class="coltextnew">
+						<p>2为"删除所有插件设置"（Remove All Tweaks Settings），输入2之后，已然会询问你是否确认，输入y后，就可以删除所有插件设置了。</p><img src="http://img.appifan.com/apple/201304/17/1366180045243.jpg" alt="无需刷机还原纯净越狱系统-二.jpg" />					</div>
+                                                					<div class="step"><span>8</span></div>
+					<div  class="coltextnew">
+						<p>3为"清理Cydia所产生的的缓存"（Clear Cydia cache），直接输入3后，就会自动清理缓存，然后输入回车返回。</p><img src="http://img.appifan.com/apple/201304/17/1366180047653.jpg" alt="无需刷机还原纯净越狱系统-三.jpg" />					</div>
+                                                					<div class="step"><span>9</span></div>
+					<div  class="coltextnew">
+						<p>下面4和5分别是"Cydia问题排除"（Cydia troubleshooting）和"Cydia问题修复"（Cydia repair），输入需求的代码后，插件就会自动完成任务，只需等待就行了。</p><img src="http://img.appifan.com/apple/201304/17/1366180047184.jpg" alt="无需刷机还原纯净越狱系统-四.jpg" /><br><img src="http://img.appifan.com/apple/201304/17/1366180048291.jpg" alt="无需刷机还原纯净越狱系统-五.jpg" />					</div>
+                                                					<div class="step"><span>10</span></div>
+					<div  class="coltextnew">
+						<p>6和7暂时用处不大，作用是"安装或更新iLex插件"（Install or update - iLEX CYDIA TWEAKS PACK）和"应用iLex设置"（Apply iLEX PACK settings），也是输入相对应的代码后等待完成即可。</p><img src="http://img.appifan.com/apple/201304/17/1366180046740.jpg" alt="无需刷机还原纯净越狱系统-六.jpg" /><br><img src="http://img.appifan.com/apple/201304/17/1366180046308.jpg" alt="无需刷机还原纯净越狱系统-七.jpg" />					</div>
+                                                					<div class="step"><span>11</span></div>
+					<div  class="coltextnew">
+						<p>至于8和9的作用，通过题目就可以得知了"恢复图标排列状态到iLex更新前"（Restore icons arrangement state before update）和"恢复通知中心状态到iLex更新前"（Restore Notification Center state before update），输入完成后，设备会注销下，完成后即可。</p>					</div>
+                                                					<div class="step"><span>12</span></div>
+					<div  class="coltextnew">
+						<p>这里说下10的作用，他可以"手动安装Deb"（Install DEB packages）。你所需要做的就是将想安装的Deb文件，通过iTools导入到/var/root/Media/Cydia/AutoInstall目录下，然后在这里输入10代码回车，然后等待后设备会自动注销就完成了。</p><img src="http://img.appifan.com/apple/201304/17/1366180045695.jpg" alt="无需刷机还原纯净越狱系统-1362118597733.jpg" />					</div>
+                					</div>
+				<!-- Baidu Button BEGIN新加内容 -->
+
+ <!-- Baidu Button END新加样式 -->       
+<style>
+.share-border{width:282px; height:50px; height:56px; border:1px solid #d9d9d9;   margin:20px auto 50px auto; box-radius: 6px; -webkit-border-radius:6px; -moz-border-radius:6px; background:#f9f9f9; }
+.share{  width:235px ; *width:260px; height:20px; margin:0 auto; background-image:none; padding:18px 16px;}
+.share span,.bds_tools a{ background:url(http://www.appifan.com/css/images/is.png) no-repeat; height:20px; float:left; padding: 0 0 0 6px; }
+.bds_tools a{width:20px;}
+.share span{ font-size:12px;line-height:20px;  font-family:宋体; padding: 0 3px 0 20px}
+.bds_tsina{ background-position: 0 -20px!important}
+.bds_qzone{ background-position: 0 -62px!important}
+.bds_tqq{ background-position: 0 -41px!important}
+.bds_kaixin001{background-position: 0 -83px!important}
+.bds_renren{ background-position: 0 -104px!important}
+.bds_douban{ background-position: 0 -125px!important}
+ </style>
+			</div>
+		</div>
+		<script>
+$(function(){
+
+
+
+	var appleimg  = {  
+
+	                           obj:            $("#text img"),
+
+	                           minwidth:    140,
+
+							   maxwidth:    480
+
+	                       }
+
+
+
+
+
+	if( $(appleimg.obj) ){
+
+
+
+
+		  $(appleimg.obj).each(function(){
+
+				  var that=jQuery(this);
+				  
+				  //图片带链接将不会处理该图
+				  
+				  
+				  
+				  
+				  
+				  if( this.parentNode.tagName.toLowerCase()!='a' ){
+
+					  var setIMG=function(){
+
+
+
+						  if( that.width() > appleimg.maxwidth){
+						  
+			　　　          $(that).width(appleimg.maxwidth) ;
+			
+			　　         };
+
+						  if( that.width()>appleimg.minwidth ){
+
+                                                          $(that).css( { "cursor" : "pointer"});
+
+							                              $(that).colorbox( { href : $(that).attr("src"),opacity : 0.3,rel:"cboxElement" } )		
+
+						  }
+
+					  };
+
+					  if(this.complete){
+
+						  setIMG();
+
+					  }else{
+
+						  that.load(function(){setIMG();});
+
+					  }
+
+				  }
+
+			  });
+
+	}
+
+
+
+})
+
+
+
+
+
+</script>
+<script type="text/javascript">defaultnav();</script> 
+
+
+<div style="display:none;">
+<script src="http://s22.cnzz.com/stat.php?id=5003845&web_id=5003845" language="JavaScript"></script>
+</div>
+
+
+<div id="gotop" ><a href="#" target="_self">go top</a></div>
+<script type="text/javascript" src="http://www.appifan.com/js/page.js"></script>
+<span id="content_idnum" style="display:none;">40728</span>
+<script type="text/javascript">
+$(document).ready(function(){
+var content_id=$("#content_idnum").html();
+$.ajax({
+   type: "POST",
+   url: "http://count1.appifan.com/count",
+   data: "content_id="+content_id,
+});
+});
+function visitCount(place,subplace){
+	var advplace = place;
+	var advsubplace = subplace;
+	 $.ajax({
+         type: "POST",
+         url: "/ajax/advVisitCount",
+         data: "place="+advplace+"&subplace="+subplace,
+         success: function(msg){
+         }
+   });
+}
+var linkpos = 0;
+$("div.s-image").each(function (){var id=linkpos+1;linkpos++;$(this).click(function(){visitCount(120,id);})});
+</script>
+</body>
+</html>
